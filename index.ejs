@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaints List</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Complaints</h1>
+
+    <!-- Branch Filter -->
+    <form method="get" action="/home">
+        <label for="branch">Filter by Branch:</label>
+        <select name="branch" id="branch">
+            <option value="all" <%= branchFilter === 'all' ? 'selected' : '' %>>All</option>
+            <option value="CSE" <%= branchFilter === 'CSE' ? 'selected' : '' %>>CSE</option>
+            <option value="ECE" <%= branchFilter === 'ECE' ? 'selected' : '' %>>ECE</option>
+            <option value="ME" <%= branchFilter === 'ME' ? 'selected' : '' %>>ME</option>
+            <option value="IT" <%= branchFilter === 'IT' ? 'selected' : '' %>>CSBS</option>
+            <option value="CSBS" <%= branchFilter === 'CSBS' ? 'selected' : '' %>>CSBS</option>
+            <option value="AIML" <%= branchFilter === 'AIMl' ? 'selected' : '' %>>AIMl</option>
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+
+    <a href="/submit-complaint" class="btn">Add Complaint</a>
+
+    <div class="card-container">
+        <% if (data.length > 0) { %>
+            <% data.forEach(complaint => { %>
+            <div class="card">
+                <h2><%= complaint.name %></h2>
+                <p>Reg. No: <%= complaint.registration %></p>
+                <p>Type: <%= complaint.complaintType %></p>
+                <p>Likes: <%= complaint.likes %></p>
+
+                <form action="/like/<%= complaint.id %>" method="POST" style="display:inline-block;">
+                    <button type="submit">&#9829;</button>
+                </form>
+
+                <form action="/delete/<%= complaint.id %>" method="POST" style="display:inline-block;">
+                    <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                </form>
+
+                <a href="/view/<%= complaint.id %>" class="btn">View More</a>
+            </div>
+            <% }); %>
+        <% } else { %>
+            <p>No complaints found.</p>
+        <% } %>
+    </div>
+            
+</body>
+            
+</html>

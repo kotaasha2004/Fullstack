@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Complaint</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Add a New Complaint</h1>
+    <form action="/addComplaint" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="branch">Branch:</label>
+        <input type="text" id="branch" name="branch" required>
+
+        <label for="complaintType">Complaint Type:</label>
+        <input type="text" id="complaintType" name="complaintType" required>
+
+        <label for="details">Details:</label>
+        <textarea id="details" name="details" required></textarea>
+
+        <button type="submit" class="btn">Submit Complaint</button>
+    </form>
+    <a href="/" class="btn">Back to Complaints</a>
+</body>
+</html>

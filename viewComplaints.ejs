@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Details</title>
+    <style>
+        /* General body styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container for the complaint details */
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            margin: 20px;
+        }
+
+        /* Heading styles */
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Paragraph styles */
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        /* Strong text styles */
+        strong {
+            color: #555;
+        }
+
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Complaint Details</h1>
+
+        <p><strong>Name:</strong> <%= complaint.name %></p>
+        <p><strong>Registration Number:</strong> <%= complaint.registration %></p>
+        <p><strong>Branch:</strong> <%= complaint.branch %></p>
+        <p><strong>Type:</strong> <%= complaint.complaintType %></p>
+        <p><strong>Details:</strong> <%= complaint.details %></p>
+        <p><strong>Likes:</strong> <%= complaint.likes %></p>
+
+        <a href="/" class="btn">Back to Home</a>
+    </div>
+</body>
+</html>
+si

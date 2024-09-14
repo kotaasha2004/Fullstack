@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation in HTML | CodingNepal</title>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCjJzi1FS-Gh7Ayi-7SCE6JWpE1V333D6w",
+            authDomain: "final3-862e9.firebaseapp.com",
+            databaseURL: "https://final3-862e9-default-rtdb.firebaseio.com",
+            projectId: "final3-862e9",
+            storageBucket: "final3-862e9.appspot.com",
+            messagingSenderId: "568948918457",
+            appId: "1:568948918457:web:38f1abda5463ee25c37368",
+            measurementId: "G-W3ESMHXGJL"
+        };
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        function signup() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            auth.createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // User signed up successfully, redirect to login
+                    window.location.href = "/login";
+                })
+                .catch((error) => {
+                    console.error("Error during signup:", error);
+                    alert(error.message);
+                });
+        }
+    </script>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f0f8ff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+        }
+
+        form {
+          background-color: #1e90ff; 
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          width: 300px;
+        }
+
+        h2 {
+          color: white;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        .form-group {
+          margin-bottom: 15px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+          width: 100%;
+          padding: 10px;
+          border-radius: 5px;
+          border: none;
+          box-sizing: border-box;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+          background-color: white; 
+          color: #333;
+        }
+
+        button[type="submit"] {
+          margin-top: 20px;
+          background-color: white;
+          color:rgb(67, 56, 56);
+          cursor: pointer;
+          transition: background-color 0.3s;
+          border: none;
+          font: 1em sans-serif;
+          width: 300px;
+          height: 40px;
+          border-radius: 10px;
+          font-size: 20px;
+        }
+
+        button[type="submit"]:hover {
+          background-color: #0056b3; 
+        }
+
+        input::placeholder {
+          color: #999;
+        }
+        input[type="text"]:hover,
+      input[type="password"]:hover {
+              border-color: #007bff; 
+              background-color: #e6f0ff; 
+      }
+      .login-link {
+          text-align: center;
+          margin-top: 10px;
+      }
+     .login-link a {
+          color:white;
+          text-decoration: none;
+      }
+      .login-link a:hover {
+          text-decoration: underline;
+      }
+
+    </style>
+  </head>
+  <body>
+   <form action="/signup" method="post">
+      <h2>Signup</h2>
+      <div class="form-group fullname">
+        <input type="text" id="fullname" placeholder="Username" name="username">
+      </div>
+      <div class="form-group email">
+             <input type="text" id="email" placeholder="Email address" name="email">
+      </div>
+      <div class="form-group password">
+        <input type="password" id="password" placeholder="Password" name="password">
+        <div class="form-group submit-btn">
+        <button type="submit">signup</button>
+      </div>
+        <div class="login-link">
+            <p>Already have an account? <a href="/login">Login here</a></p>
+        </div>
+
+   </form>
+</body>
+ 
+</html>
